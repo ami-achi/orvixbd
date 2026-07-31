@@ -77,23 +77,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Orvix — Digital Agency for Web, Product & Growth" },
+      {
+        name: "description",
+        content:
+          "Orvix is a digital agency building websites, web applications, brands and SEO growth for companies worldwide.",
+      },
+      { name: "author", content: "Orvix" },
+      { property: "og:site_name", content: "Orvix" },
+      { property: "og:title", content: "Orvix — Digital Agency for Web, Product & Growth" },
+      {
+        property: "og:description",
+        content: "Websites, web applications, design, branding and SEO delivered by a senior in-house team.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap",
+      },
+      { rel: "canonical", href: "https://orvix.pro.bd" },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
