@@ -1,8 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Hexagon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logoAsset from "@/assets/orvix-logo.png.asset.json";
+
 
 const nav = [
   { to: "/", label: "Home" },
@@ -35,11 +37,15 @@ export function SiteHeader() {
     >
       <div className="container-page flex h-18 items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2.5" aria-label="Orvix home">
-          <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-            <Hexagon className="size-4.5" strokeWidth={2.5} />
-          </span>
+          <img
+            src={logoAsset.url}
+            alt="Orvix logo"
+            className="size-9 rounded-xl object-cover"
+            loading="eager"
+          />
           <span className="font-display text-lg font-semibold tracking-tight">Orvix</span>
         </Link>
+
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
           {nav.map((item) => (

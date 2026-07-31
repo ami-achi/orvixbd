@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Hexagon, Mail, Phone, Globe, Linkedin, Github, Twitter, Facebook } from "lucide-react";
+import { Mail, Phone, Globe, Linkedin, Github, Twitter, Facebook } from "lucide-react";
 import { company, services } from "@/lib/content";
+import logoAsset from "@/assets/orvix-logo.png.asset.json";
 
 export function SiteFooter() {
   return (
@@ -9,11 +10,10 @@ export function SiteFooter() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="flex size-9 items-center justify-center rounded-xl bg-brand text-brand-foreground">
-                <Hexagon className="size-4.5" strokeWidth={2.5} />
-              </span>
+              <img src={logoAsset.url} alt="Orvix logo" className="size-9 rounded-xl object-cover" />
               <span className="font-display text-lg font-semibold">Orvix</span>
             </div>
+
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-ink-muted">
               A digital agency engineering websites, applications and brands for companies worldwide. Founded by{" "}
               {company.founder} in {company.country}.
