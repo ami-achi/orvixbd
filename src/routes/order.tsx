@@ -14,8 +14,9 @@ import { orderSchema, submitOrder, type OrderInput } from "@/lib/orders.function
 
 export const Route = createFileRoute("/order")({
   validateSearch: (search: Record<string, unknown>) => ({
-    service: typeof search.service === "string" ? search.service : undefined,
+    service: typeof search["service"] === "string" ? (search["service"] as string) : undefined,
   }),
+
   head: () => ({
     meta: [
       { title: "Order a Project — Orvix Project Brief Form" },
