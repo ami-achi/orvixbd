@@ -1,3 +1,10 @@
+import workNorthwind from "@/assets/work-northwind.jpg";
+import workAurora from "@/assets/work-aurora.jpg";
+import workMeridian from "@/assets/work-meridian.jpg";
+import workFieldwork from "@/assets/work-fieldwork.jpg";
+import workLumen from "@/assets/work-lumen.jpg";
+import workCadence from "@/assets/work-cadence.jpg";
+
 export const company = {
   name: "Orvix",
   tagline: "Digital products engineered for growth",
@@ -158,13 +165,20 @@ export const tech = [
 ];
 
 export const portfolio = [
-  { title: "Northwind Analytics", category: "Web Application", result: "+38% activation", year: "2026" },
-  { title: "Aurora Commerce", category: "E-commerce", result: "2.1x revenue", year: "2025" },
-  { title: "Meridian Capital", category: "Website", result: "0.9s load time", year: "2025" },
-  { title: "Fieldwork CRM", category: "Software", result: "12h saved weekly", year: "2025" },
-  { title: "Lumen Studio", category: "Branding", result: "Full rebrand", year: "2024" },
-  { title: "Cadence Health", category: "UI UX Design", result: "+52% task success", year: "2024" },
+  {
+    title: "Northwind Analytics",
+    category: "Web Application",
+    result: "+38% activation",
+    year: "2026",
+    image: workNorthwind,
+  },
+  { title: "Aurora Commerce", category: "E-commerce", result: "2.1x revenue", year: "2025", image: workAurora },
+  { title: "Meridian Capital", category: "Website", result: "0.9s load time", year: "2025", image: workMeridian },
+  { title: "Fieldwork CRM", category: "Software", result: "12h saved weekly", year: "2025", image: workFieldwork },
+  { title: "Lumen Studio", category: "Branding", result: "Full rebrand", year: "2024", image: workLumen },
+  { title: "Cadence Health", category: "UI UX Design", result: "+52% task success", year: "2024", image: workCadence },
 ];
+
 
 export const testimonials = [
   {

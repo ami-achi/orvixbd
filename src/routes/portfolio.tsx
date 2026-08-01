@@ -37,9 +37,16 @@ function Portfolio() {
               className="group overflow-hidden rounded-3xl border border-border bg-card transition-shadow hover:shadow-elegant"
             >
               <div className="surface-ink relative flex h-60 items-end overflow-hidden p-8">
+                <img
+                  src={p.image}
+                  alt={`${p.title} — ${p.category} project by Orvix`}
+                  loading="lazy"
+                  width={1024}
+                  height={768}
+                  className="absolute inset-0 size-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-105"
+                />
                 <div
-                  className="pointer-events-none absolute -right-16 -top-16 size-64 rounded-full opacity-30 blur-3xl transition-opacity group-hover:opacity-60"
-                  style={{ background: "var(--gradient-brand)" }}
+                  className="absolute inset-0 bg-ink/55"
                   aria-hidden
                 />
                 <div className="relative">
@@ -47,6 +54,7 @@ function Portfolio() {
                   <h2 className="mt-3 font-display text-2xl font-semibold">{p.title}</h2>
                 </div>
               </div>
+
               <div className="flex items-center justify-between p-7">
                 <div>
                   <p className="text-sm font-medium">{p.result}</p>
