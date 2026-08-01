@@ -172,3 +172,61 @@
 @utility animate-float-slow {
   animation: float-slow 7s ease-in-out infinite;
 }
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee-x 34s linear infinite;
+}
+
+/* Fine engineering grid used behind dark sections */
+@utility grid-ink {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@utility grid-light {
+  background-image:
+    linear-gradient(to right, oklch(0.208 0.042 265.755 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.208 0.042 265.755 / 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@utility mask-fade-b {
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+@utility mask-fade-x {
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+/* Gradient hairline border for premium cards */
+@utility card-premium {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+}
+
+@utility ring-brand-soft {
+  box-shadow: 0 0 0 1px oklch(0.623 0.214 259.8 / 0.2);
+}
+
+@utility number-plate {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+}
