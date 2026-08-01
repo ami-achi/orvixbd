@@ -335,14 +335,21 @@ function Home() {
                 className="group block overflow-hidden rounded-2xl border border-border bg-card transition-all hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-elegant"
               >
                 <div className="surface-ink relative flex h-52 items-end overflow-hidden p-6">
-                  <div className="grid-ink absolute inset-0 opacity-60" aria-hidden />
+                  <img
+                    src={p.image}
+                    alt={`${p.title} — ${p.category} project by Orvix`}
+                    loading="lazy"
+                    width={1024}
+                    height={768}
+                    className="absolute inset-0 size-full object-cover opacity-70 transition-all duration-700 group-hover:scale-105 group-hover:opacity-90"
+                  />
                   <div
-                    className="absolute -right-10 -top-10 size-40 rounded-full opacity-30 blur-2xl transition-opacity duration-500 group-hover:opacity-60"
-                    style={{ background: "var(--gradient-brand)" }}
+                    className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"
                     aria-hidden
                   />
                   <span className="relative font-display text-xl font-semibold">{p.title}</span>
                 </div>
+
                 <div className="flex items-center justify-between p-6">
                   <div>
                     <p className="eyebrow text-brand">{p.category}</p>
