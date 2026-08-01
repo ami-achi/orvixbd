@@ -1,3 +1,10 @@
+import workNorthwind from "@/assets/work-northwind.jpg";
+import workAurora from "@/assets/work-aurora.jpg";
+import workMeridian from "@/assets/work-meridian.jpg";
+import workFieldwork from "@/assets/work-fieldwork.jpg";
+import workLumen from "@/assets/work-lumen.jpg";
+import workCadence from "@/assets/work-cadence.jpg";
+
 export const company = {
   name: "Orvix",
   tagline: "Digital products engineered for growth",
