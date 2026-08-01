@@ -344,7 +344,7 @@ function Home() {
                     className="absolute inset-0 size-full object-cover opacity-70 transition-all duration-700 group-hover:scale-105 group-hover:opacity-90"
                   />
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/10"
+                    className="absolute inset-0 bg-ink/55"
                     aria-hidden
                   />
                   <span className="relative font-display text-xl font-semibold">{p.title}</span>
