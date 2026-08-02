@@ -9,6 +9,7 @@ import logoAsset from "@/assets/orvix-logo.png.asset.json";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+  { to: "/founder", label: "Founder" },
   { to: "/services", label: "Services" },
   { to: "/portfolio", label: "Portfolio" },
   { to: "/pricing", label: "Pricing" },
