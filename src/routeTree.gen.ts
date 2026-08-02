@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as FounderRouteImport } from './routes/founder'
 import { Route as OrderRouteImport } from './routes/order'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -44,6 +45,11 @@ const ContactRoute = ContactRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FounderRoute = FounderRouteImport.update({
+  id: '/founder',
+  path: '/founder',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OrderRoute = OrderRouteImport.update({
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/founder': typeof FounderRoute
   '/order': typeof OrderRoute
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/founder': typeof FounderRoute
   '/order': typeof OrderRoute
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/founder': typeof FounderRoute
   '/order': typeof OrderRoute
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/faq'
+    | '/founder'
     | '/order'
     | '/portfolio'
     | '/pricing'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/faq'
+    | '/founder'
     | '/order'
     | '/portfolio'
     | '/pricing'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/faq'
+    | '/founder'
     | '/order'
     | '/portfolio'
     | '/pricing'
@@ -165,6 +177,7 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
+  FounderRoute: typeof FounderRoute
   OrderRoute: typeof OrderRoute
   PortfolioRoute: typeof PortfolioRoute
   PricingRoute: typeof PricingRoute
@@ -208,6 +221,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/founder': {
+      id: '/founder'
+      path: '/founder'
+      fullPath: '/founder'
+      preLoaderRoute: typeof FounderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/order': {
@@ -261,6 +281,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
+  FounderRoute: FounderRoute,
   OrderRoute: OrderRoute,
   PortfolioRoute: PortfolioRoute,
   PricingRoute: PricingRoute,
