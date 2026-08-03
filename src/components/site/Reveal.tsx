@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 export function Reveal({
   children,
   delay = 0,
-  y = 24,
+  y = 18,
   className,
 }: {
   children: ReactNode;
@@ -17,8 +17,8 @@ export function Reveal({
     <motion.div
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true, margin: "-70px" }}
+      transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
     >
       {children}
@@ -30,11 +30,11 @@ export function Marquee({ items, className }: { items: string[]; className?: str
   const row = [...items, ...items];
   return (
     <div className={cn("mask-fade-x overflow-hidden", className)}>
-      <div className="animate-marquee flex w-max items-center gap-3">
+      <div className="animate-marquee flex w-max items-center gap-8">
         {row.map((item, i) => (
           <span
             key={`${item}-${i}`}
-            className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium whitespace-nowrap"
+            className="font-mono text-xs uppercase tracking-widest whitespace-nowrap text-muted-foreground"
           >
             {item}
           </span>
