@@ -58,153 +58,137 @@ const pillars = [
 function Home() {
   return (
     <SiteShell>
-      {/* ============ Hero ============ */}
-      <section className="surface-ink relative isolate overflow-hidden">
-        <img
-          src={heroImg}
-          alt=""
-          width={1600}
-          height={1008}
-          aria-hidden
-          className="absolute inset-0 size-full scale-105 object-cover opacity-50"
-        />
+      {/* ============ Bento hero ============ */}
+      <section className="relative isolate overflow-hidden bg-background">
+        <div className="grid-light pointer-events-none absolute inset-0 opacity-70" aria-hidden />
         <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(115deg, oklch(0.13 0.035 264 / 0.97) 0%, oklch(0.15 0.04 264 / 0.82) 45%, oklch(0.18 0.05 262 / 0.55) 100%)",
-          }}
+          className="animate-aurora pointer-events-none absolute -left-40 -top-40 size-[38rem] rounded-full blur-3xl"
+          style={{ background: "var(--gradient-brand)", opacity: 0.35 }}
           aria-hidden
         />
-        <div className="grid-ink mask-fade-b absolute inset-0 opacity-70" aria-hidden />
-        <div
-          className="animate-float-slow pointer-events-none absolute -right-40 top-10 size-[42rem] rounded-full opacity-30 blur-3xl"
-          style={{ background: "var(--gradient-brand)" }}
-          aria-hidden
-        />
-
-        <div className="container-page relative py-28 md:py-40">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="glass-card inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium text-ink-foreground"
-          >
-            <span className="relative flex size-1.5">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-75" />
-              <span className="relative inline-flex size-1.5 rounded-full bg-brand" />
-            </span>
-            Digital agency · {company.country} · Serving clients worldwide
-          </motion.div>
-
-          <h1 className="mt-8 max-w-4xl text-[2.6rem] font-semibold leading-[1.02] md:text-7xl">
-            {["We build digital", "products that"].map((line, i) => (
-              <motion.span
-                key={line}
-                initial={{ opacity: 0, y: 26 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.08 + i * 0.09, ease: [0.16, 1, 0.3, 1] }}
-                className="block"
-              >
-                {line}
-              </motion.span>
-            ))}
-            <motion.span
-              initial={{ opacity: 0, y: 26 }}
+        <div className="container-page relative py-16 md:py-24">
+          <div className="grid gap-4 lg:grid-cols-12">
+            {/* headline tile */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.26, ease: [0.16, 1, 0.3, 1] }}
-              className="block"
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="bento-ink relative flex flex-col justify-between p-8 md:p-12 lg:col-span-8"
             >
-              <span className="text-gradient-brand">look premium and perform</span>
-              <span className="text-brand">.</span>
-            </motion.span>
-          </h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-7 max-w-xl text-lg leading-relaxed text-ink-muted md:text-xl"
-          >
-            Orvix is a full-service agency for websites, web applications, design, branding and SEO. You brief us
-            directly — no marketplaces, no middlemen, one accountable team.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.48, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 flex flex-wrap items-center gap-3"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="group rounded-full bg-brand px-7 text-brand-foreground shadow-glow hover:bg-brand/90"
-            >
-              <Link to="/order">
-                Start your project
-                <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-full border-ink-border bg-white/5 px-7 text-ink-foreground backdrop-blur hover:bg-white/10 hover:text-ink-foreground"
-            >
-              <Link to="/portfolio">View our work</Link>
-            </Button>
-            <span className="ml-1 flex items-center gap-1.5 text-sm text-ink-muted">
-              <Sparkles className="size-4 text-brand" /> Proposal in 2 business days
-            </span>
-          </motion.div>
-
-          <motion.dl
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, delay: 0.6 }}
-            className="mt-16 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-ink-border bg-white/5 backdrop-blur md:grid-cols-4"
-          >
-            {stats.map(([value, label]) => (
-              <div key={label} className="bg-white/[0.02] px-6 py-7">
-                <dt className="number-plate text-3xl font-semibold md:text-4xl">{value}</dt>
-                <dd className="mt-1 text-sm text-ink-muted">{label}</dd>
+              <div className="grid-ink pointer-events-none absolute inset-0 opacity-60" aria-hidden />
+              <div className="relative">
+                <span className="glass-card inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium">
+                  <span className="relative flex size-1.5">
+                    <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-75" />
+                    <span className="relative inline-flex size-1.5 rounded-full bg-brand" />
+                  </span>
+                  Digital agency · {company.country} · Worldwide
+                </span>
+                <h1 className="display-tight mt-8 max-w-3xl text-[2.4rem] md:text-6xl">
+                  Design.
+                  <br />
+                  Build. <span className="text-gradient-brand">Scale.</span>
+                </h1>
+                <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-muted md:text-lg">
+                  Orvix is a full-service agency for websites, web applications, design, branding and SEO — briefed
+                  directly to one accountable in-house team.
+                </p>
               </div>
+              <div className="relative mt-10 flex flex-wrap items-center gap-3">
+                <Button
+                  asChild
+                  size="lg"
+                  className="group rounded-full bg-brand px-7 text-brand-foreground shadow-glow hover:bg-brand/90"
+                >
+                  <Link to="/order">
+                    Start your project
+                    <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-ink-border bg-white/5 px-7 text-ink-foreground backdrop-blur hover:bg-white/10 hover:text-ink-foreground"
+                >
+                  <Link to="/portfolio">View our work</Link>
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* visual tile */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="bento relative min-h-[16rem] lg:col-span-4"
+            >
+              <img
+                src={heroImg}
+                alt=""
+                aria-hidden
+                width={1600}
+                height={1008}
+                className="absolute inset-0 size-full scale-105 object-cover"
+              />
+              <div className="absolute inset-0 bg-ink/45" aria-hidden />
+              <div className="relative flex h-full flex-col justify-end p-7 text-ink-foreground">
+                <p className="eyebrow text-brand">Proposal in 48h</p>
+                <p className="mt-3 text-lg font-medium leading-snug">
+                  Fixed scope, fixed price, weekly working demos.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* stats tiles */}
+            {stats.map(([value, label], i) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 + i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                className="bento p-6 hover:-translate-y-1 hover:border-brand/50 hover:shadow-elegant lg:col-span-3"
+              >
+                <p className="number-plate text-3xl md:text-4xl">{value}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{label}</p>
+              </motion.div>
             ))}
-          </motion.dl>
+          </div>
         </div>
       </section>
 
       {/* ============ Tech marquee ============ */}
-      <div className="border-b border-border bg-secondary/40 py-8">
+      <div className="border-y border-border bg-secondary/50 py-8">
         <p className="container-page eyebrow mb-6 text-center text-muted-foreground">
           The stack we build and hand over
         </p>
         <Marquee items={tech} />
       </div>
 
-      {/* ============ Intro / pillars ============ */}
+      {/* ============ Intro / pillars bento ============ */}
       <Section>
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Who we are"
-              title="An engineering-led agency, not a marketplace"
-              text="Orvix is a single accountable team. Every project is scoped, designed, built and supported in-house — from a five-page site to a production web platform. We work in weekly increments with clear pricing and a direct line to the people writing the code."
-            />
-            <div className="mt-8 flex flex-wrap gap-2">
-              {["In-house team", "Weekly demos", "Full code ownership", "Post-launch support"].map((t) => (
-                <span key={t} className="rounded-full bg-brand-soft px-4 py-1.5 text-xs font-semibold text-brand">
-                  {t}
-                </span>
-              ))}
+        <div className="grid gap-4 lg:grid-cols-12">
+          <Reveal className="lg:col-span-5">
+            <div className="bento h-full bg-secondary/60 p-8 md:p-10">
+              <SectionHeading
+                eyebrow="Who we are"
+                title="An engineering-led agency, not a marketplace"
+                text="Every project is scoped, designed, built and supported in-house — from a five-page site to a production web platform, in weekly increments with clear pricing."
+              />
+              <div className="mt-8 flex flex-wrap gap-2">
+                {["In-house team", "Weekly demos", "Full code ownership", "Post-launch support"].map((t) => (
+                  <span key={t} className="rounded-full bg-brand-soft px-4 py-1.5 text-xs font-semibold text-foreground">
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
           </Reveal>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
             {pillars.map((c, i) => (
               <Reveal key={c.title} delay={i * 0.08}>
-                <div className="card-premium group h-full p-6 hover:-translate-y-1 hover:border-brand/40 hover:shadow-elegant">
-                  <span className="inline-flex size-11 items-center justify-center rounded-xl bg-brand-soft text-brand transition-colors group-hover:bg-brand group-hover:text-brand-foreground">
+                <div className="bento group h-full p-7 hover:-translate-y-1.5 hover:border-brand/50 hover:shadow-elegant">
+                  <span className="inline-flex size-11 items-center justify-center rounded-xl bg-brand-soft text-foreground transition-colors group-hover:bg-brand group-hover:text-brand-foreground">
                     <c.icon className="size-5" />
                   </span>
                   <h3 className="mt-5 font-semibold">{c.title}</h3>
@@ -215,6 +199,7 @@ function Home() {
           </div>
         </div>
       </Section>
+
 
       {/* ============ Services ============ */}
       <Section className="relative overflow-hidden bg-secondary/50">
@@ -233,7 +218,7 @@ function Home() {
                 <Link
                   to="/services"
                   hash={s.slug}
-                  className="card-premium group relative flex h-full flex-col overflow-hidden p-7 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-elegant"
+                  className="bento group relative flex h-full flex-col overflow-hidden p-7 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-elegant"
                 >
                   <div
                     className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-40"
@@ -380,7 +365,7 @@ function Home() {
         <div className="mt-14 grid gap-4 lg:grid-cols-3">
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.08}>
-              <figure className="card-premium flex h-full flex-col p-8 hover:-translate-y-1 hover:shadow-elegant">
+              <figure className="bento flex h-full flex-col p-8 hover:-translate-y-1 hover:shadow-elegant">
                 <div className="flex items-center justify-between">
                   <div className="flex gap-0.5 text-brand">
                     {Array.from({ length: 5 }).map((_, s) => (
@@ -418,7 +403,7 @@ function Home() {
             <Reveal key={p.slug} delay={i * 0.08}>
               <Link
                 to="/blog"
-                className="card-premium group flex h-full flex-col p-7 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-elegant"
+                className="bento group flex h-full flex-col p-7 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-elegant"
               >
                 <p className="eyebrow text-brand">{p.tag}</p>
                 <h3 className="mt-4 text-lg font-semibold leading-snug">{p.title}</h3>
