@@ -66,8 +66,8 @@
   --input: oklch(0.9 0.01 85);
   --ring: oklch(0.78 0.16 74);
 
-  --brand: oklch(0.78 0.16 74);
-  --brand-foreground: oklch(0.16 0.01 60);
+  --brand: oklch(0.7 0.16 62);
+  --brand-foreground: oklch(0.99 0.005 90);
   --brand-soft: oklch(0.955 0.045 88);
 
   --ink: oklch(0.15 0.005 60);

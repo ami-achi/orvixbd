@@ -218,7 +218,7 @@ function Home() {
                 <Link
                   to="/services"
                   hash={s.slug}
-                  className="card-premium group relative flex h-full flex-col overflow-hidden p-7 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-elegant"
+                  className="bento group relative flex h-full flex-col overflow-hidden p-7 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-elegant"
                 >
                   <div
                     className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-40"
@@ -365,7 +365,7 @@ function Home() {
         <div className="mt-14 grid gap-4 lg:grid-cols-3">
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.08}>
-              <figure className="card-premium flex h-full flex-col p-8 hover:-translate-y-1 hover:shadow-elegant">
+              <figure className="bento flex h-full flex-col p-8 hover:-translate-y-1 hover:shadow-elegant">
                 <div className="flex items-center justify-between">
                   <div className="flex gap-0.5 text-brand">
                     {Array.from({ length: 5 }).map((_, s) => (
@@ -403,7 +403,7 @@ function Home() {
             <Reveal key={p.slug} delay={i * 0.08}>
               <Link
                 to="/blog"
-                className="card-premium group flex h-full flex-col p-7 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-elegant"
+                className="bento group flex h-full flex-col p-7 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-elegant"
               >
                 <p className="eyebrow text-brand">{p.tag}</p>
                 <h3 className="mt-4 text-lg font-semibold leading-snug">{p.title}</h3>
