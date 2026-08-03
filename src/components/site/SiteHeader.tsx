@@ -1,17 +1,15 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logoAsset from "@/assets/orvix-logo.png.asset.json";
-
 
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/founder", label: "Founder" },
   { to: "/services", label: "Services" },
-  { to: "/portfolio", label: "Portfolio" },
+  { to: "/portfolio", label: "Work" },
   { to: "/pricing", label: "Pricing" },
   { to: "/blog", label: "Blog" },
   { to: "/faq", label: "FAQ" },
@@ -32,45 +30,41 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 transition-all duration-300",
-        scrolled ? "border-b border-border bg-background/85 backdrop-blur-xl" : "border-b border-transparent",
+        "sticky top-0 z-50 border-b transition-colors duration-200",
+        scrolled ? "border-border bg-background/80 backdrop-blur-xl" : "border-transparent bg-background/40 backdrop-blur-sm",
       )}
     >
-      <div className="container-page flex h-18 items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2.5" aria-label="Orvix home">
-          <img
-            src={logoAsset.url}
-            alt="Orvix logo"
-            className="size-9 rounded-xl object-cover"
-            loading="eager"
-          />
-          <span className="font-display text-lg font-semibold tracking-tight">Orvix</span>
+      <div className="container-page flex h-16 items-center justify-between">
+        <Link to="/" className="font-display text-xl font-semibold tracking-tight" aria-label="Orvix home">
+          Orvix<span className="text-brand">.</span>
         </Link>
 
-
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Main">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              className="rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground data-[status=active]:text-foreground"
+              className="text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground data-[status=active]:text-foreground"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
-          <Button asChild size="sm" className="rounded-full px-5">
-            <Link to="/order">Start a project</Link>
+        <div className="hidden lg:flex">
+          <Button asChild size="sm" className="group rounded-lg bg-brand px-4 text-brand-foreground hover:bg-brand/90">
+            <Link to="/order">
+              Start a project
+              <ArrowRight className="ml-1 size-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
+            </Link>
           </Button>
         </div>
 
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex size-10 items-center justify-center rounded-xl border border-border lg:hidden"
+          className="flex size-10 items-center justify-center rounded-lg border border-border lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
@@ -80,18 +74,18 @@ export function SiteHeader() {
 
       {open && (
         <div className="border-t border-border bg-background lg:hidden">
-          <nav className="container-page flex flex-col py-4" aria-label="Mobile">
+          <nav className="container-page flex flex-col py-3" aria-label="Mobile">
             {nav.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-2 py-3 text-sm font-medium text-muted-foreground hover:text-foreground"
+                className="border-b border-border py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground"
               >
                 {item.label}
               </Link>
             ))}
-            <Button asChild className="mt-3 rounded-full">
+            <Button asChild className="mt-4 rounded-lg bg-brand text-brand-foreground hover:bg-brand/90">
               <Link to="/order" onClick={() => setOpen(false)}>
                 Start a project
               </Link>

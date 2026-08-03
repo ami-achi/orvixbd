@@ -1,20 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, Globe, Linkedin, Github, Twitter, Facebook } from "lucide-react";
 import { company, services } from "@/lib/content";
-import logoAsset from "@/assets/orvix-logo.png.asset.json";
 
 export function SiteFooter() {
   return (
-    <footer className="surface-ink mt-32">
-      <div className="container-page py-20">
+    <footer className="border-t border-border bg-background">
+      <div className="container-page py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
-            <div className="flex items-center gap-2.5">
-              <img src={logoAsset.url} alt="Orvix logo" className="size-9 rounded-xl object-cover" />
-              <span className="font-display text-lg font-semibold">Orvix</span>
-            </div>
-
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-ink-muted">
+            <Link to="/" className="font-display text-xl font-semibold tracking-tight">
+              Orvix<span className="text-brand">.</span>
+            </Link>
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
               A digital agency engineering websites, applications and brands for companies worldwide. Founded by{" "}
               {company.founder} in {company.country}.
             </p>
@@ -24,7 +21,7 @@ export function SiteFooter() {
                   key={i}
                   href={company.website}
                   aria-label="Orvix social profile"
-                  className="glass-card flex size-9 items-center justify-center rounded-xl text-ink-foreground transition-colors hover:bg-brand"
+                  className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors duration-150 hover:border-brand/40 hover:text-brand"
                 >
                   <Icon className="size-4" />
                 </a>
@@ -48,29 +45,32 @@ export function SiteFooter() {
           />
 
           <div>
-            <h3 className="eyebrow text-ink-muted">Contact</h3>
-            <ul className="mt-5 space-y-3 text-sm text-ink-muted">
+            <h3 className="mono-label">Contact</h3>
+            <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-2.5">
                 <Globe className="size-4 shrink-0 text-brand" />
-                <a href={company.website} className="hover:text-ink-foreground">
+                <a href={company.website} className="transition-colors duration-150 hover:text-brand">
                   orvix.pro.bd
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="size-4 shrink-0 text-brand" />
-                <a href={`mailto:${company.email}`} className="break-all hover:text-ink-foreground">
+                <a href={`mailto:${company.email}`} className="break-all transition-colors duration-150 hover:text-brand">
                   {company.email}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="size-4 shrink-0 text-brand" />
-                <a href={`mailto:${company.founderEmail}`} className="break-all hover:text-ink-foreground">
+                <a
+                  href={`mailto:${company.founderEmail}`}
+                  className="break-all transition-colors duration-150 hover:text-brand"
+                >
                   {company.founderEmail}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="size-4 shrink-0 text-brand" />
-                <a href={`tel:${company.phone}`} className="hover:text-ink-foreground">
+                <a href={`tel:${company.phone}`} className="transition-colors duration-150 hover:text-brand">
                   {company.phone}
                 </a>
               </li>
@@ -78,17 +78,17 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-ink-border pt-8 text-sm text-ink-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright © 2026 Orvix. All Rights Reserved.</p>
+        <div className="mt-14 flex flex-col gap-4 border-t border-border pt-8 font-mono text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 ORVIX — ALL RIGHTS RESERVED</p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="hover:text-ink-foreground">
-              Privacy Policy
+            <Link to="/privacy" className="transition-colors duration-150 hover:text-brand">
+              PRIVACY
             </Link>
-            <Link to="/terms" className="hover:text-ink-foreground">
-              Terms
+            <Link to="/terms" className="transition-colors duration-150 hover:text-brand">
+              TERMS
             </Link>
-            <Link to="/contact" className="hover:text-ink-foreground">
-              Contact
+            <Link to="/contact" className="transition-colors duration-150 hover:text-brand">
+              CONTACT
             </Link>
           </div>
         </div>
@@ -100,11 +100,11 @@ export function SiteFooter() {
 function FooterCol({ title, links }: { title: string; links: { to: string; label: string }[] }) {
   return (
     <div>
-      <h3 className="eyebrow text-ink-muted">{title}</h3>
-      <ul className="mt-5 space-y-3 text-sm text-ink-muted">
+      <h3 className="mono-label">{title}</h3>
+      <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
         {links.map((l) => (
           <li key={l.label}>
-            <Link to={l.to} className="hover:text-ink-foreground">
+            <Link to={l.to} className="transition-colors duration-150 hover:text-brand">
               {l.label}
             </Link>
           </li>
