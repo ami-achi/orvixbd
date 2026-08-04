@@ -90,7 +90,7 @@ function HeroGlow() {
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-      <motion.div className="absolute inset-0" style={reduce ? undefined : { y }}>
+      <motion.div className="absolute inset-0" {...(reduce ? {} : { style: { y } })}>
         <div className="grid-ink absolute inset-0 opacity-70" />
         <div className="animate-glow-drift absolute -top-40 left-1/4 size-[36rem] rounded-full bg-brand/10 blur-[120px]" />
         <div className="animate-glow-drift absolute -bottom-52 right-0 size-[28rem] rounded-full bg-brand/[0.07] blur-[110px] [animation-delay:-6s]" />
