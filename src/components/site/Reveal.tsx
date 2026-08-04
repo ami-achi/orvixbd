@@ -225,7 +225,7 @@ export function Parallax({
 
   return (
     <div ref={ref} className={className}>
-      <motion.div style={reduce ? undefined : { y, willChange: "transform" }}>{children}</motion.div>
+      <motion.div {...(reduce ? {} : { style: { y, willChange: "transform" as const } })}>{children}</motion.div>
     </div>
   );
 }
@@ -253,9 +253,7 @@ export function Magnetic({
     <motion.div
       ref={ref}
       className={cn("inline-block", className)}
-      style={reduce ? undefined : { x, y }}
-      whileHover={reduce ? undefined : { scale: 1.03 }}
-      whileTap={reduce ? undefined : { scale: 0.97 }}
+      {...(reduce ? {} : { style: { x, y }, whileHover: { scale: 1.03 }, whileTap: { scale: 0.97 } })}
       transition={{ duration: 0.2, ease: EASE }}
       onPointerMove={(e) => {
         if (reduce || !ref.current) return;
