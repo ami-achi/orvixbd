@@ -303,3 +303,72 @@
 @utility mask-fade-x {
   mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 }
+
+/* ---------------- animation layer ---------------- */
+
+.marquee-track {
+  animation-name: marquee-x;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+.group:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes glow-drift {
+  0% {
+    transform: translate3d(-6%, -4%, 0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate3d(6%, 5%, 0) scale(1.12);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(-6%, -4%, 0) scale(1);
+    opacity: 0.5;
+  }
+}
+
+@utility animate-glow-drift {
+  animation: glow-drift 18s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* shine sweep on click/hover for primary CTAs */
+@utility btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%) skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.35), transparent);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+.btn-shine:hover::after,
+.btn-shine:active::after {
+  transform: translateX(120%) skewX(-18deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+}
